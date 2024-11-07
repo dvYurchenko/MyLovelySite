@@ -1,0 +1,82 @@
+{% for item in tur %}
+<div id = 'polud_vetlan'>
+		<img id='pict_PV'  src = "{{ MEDIA_URL }} {{ item.image.url }}">
+		<div style='width: 63%;' id = 'text_polud_vetlan'><p class = 'vibor'> {{ item.id }}.{{ item.title }} </p>
+			<p>
+			<a class="n btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleTwo" role="button" aria-expanded="false" aria-controls="collapseExample">
+              {{ item.description_1 }}
+			</a>
+			</p>
+				<div class="collapse" id="collapseExampleTwo">
+					<div class="card card-body" style="text-align: left;">
+                      {{ item.description_2 }}
+                    <div>
+	<div style='float: left'>
+		<strong style='color: #D2691E;'>Ближайшие даты:</strong>
+		<ul style='margin-left: -33px'>
+			<li>&#10001; {{ item.date_1 }} </li>
+			<li>&#10001; {{ item.date_2 }}</li>
+			<li>&#10001; {{ item.date_3 }}</li>
+			<li>&#10001; {{ item.date_4 }}</li>
+		</ul>
+	</div>
+	<div style='margin-left: 50%;'>
+		<strong style='color: #D2691E;'>&#128176; Цена:</strong>
+		<ul style='margin-left: -33px;'>
+			<li>&#10001; <span style='color: #D2691E;'>Взрослый:</span> {{ item.price_ank }} рублей с человека;</li>
+			<li>&#10001; <span style='color: #D2691E;'>Детский:</span> {{ item.price_child }} рублей с человека</li>
+		</ul>
+	</div>
+</div>
+<button class='my_costom_button'>&#9989; Забронировать тур!</button><br>
+	<!-- Описание тура -->
+<div class="accordion" id="accordionOne">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFor" aria-expanded="true" aria-controls="collapseFor">
+        <strong style='color: #D2691E; font-size: 18px'>Программа тура</strong>
+      </button>
+    </h2>
+    <div id="collapseFor" class="accordion-collapse collapse show" data-bs-parent="#accordionOne">
+      <div class="accordion-body">
+        {{ item.program }}
+      </div>
+    </div>
+  </div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <strong style='color: #D2691E; font-size: 18px'>В стоимость включено</strong>
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
+      <div class="accordion-body">
+        {{ item.includeprice }}
+		<hr>
+		  {{ item.not_includeprice }}
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <strong style='color: #D2691E; font-size: 18px'>Памятка туристу</strong>
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionOne">
+      <div class="accordion-body">
+	Форма одежды походная (спортивно-свободная) соответствующая погодным условиям.
+	Удобная обувь (треккинговая или закрытая кожаная обувь - должна быть непромокаемая).
+	<hr>
+	  {{ item.pamiatka }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Конец описания тура -->
+		</div>
+		</div>
+	</div>
+</div>
+{% endfor %}

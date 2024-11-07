@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<script src = "{% static 'js/jquery-3.7.1.min.js' %}"></script>
+	<meta charset = 'UTF-8'>
+	<link rel='stylesheet' href = "{% static 'css/style_1.css' %}">
+	<link rel='stylesheet' href = "{% static 'css/owl.carousel.min.css' %}">
+	<link rel='stylesheet' href = "{% static 'css/owl.carousel.css' %}">
+	<script src="{% static 'js/owl.carousel.min.js' %}"> </script>
+	<title> Путешествуй с нами </title>
+</head>
+
+<body>
+<div class = 'registrazia'>
+	<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></div>
+</div>
+<div class = 'navigation1'></div>
+<div class="navigation">
+  <p id = 'text'> Мир слишком велик,<br> чтобы сидеть на одном месте </p>
+</div>
+<div class = 'menu1'></div>
+<div class="dropdown">
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu1()'>Туры по Пермскому краю</button>
+		<div class = 'menu' id="tab1">
+			  <a href="{% url 'first' %}#usv_stolbi"><span>Усьвинские столбы</span></a>
+			  <a href="{% url 'first' %}#polud_vetlan"><span>Гора Полюд и скалы Ветлан</span></a>
+			  <a href="{% url 'first' %}#zhigalan_vodopadi"><span>Хребет Кваркуш и Жигаланские водопады</span></a>
+		</div>
+	</div>
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu2()'>Туры по Уралу</button>
+		<div class = 'menu' id="tab2">
+			  <a href="#"><span>Dresses</span></a>
+			  <a href="#"><span>Shirts</span></a>
+			  <a href="#"><span>Jeans</span></a>
+			  <a href="#"><span>Shoes</span></a>
+		</div>
+	</div>
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu3()'>Активный отдых</button>
+		<div class = 'menu' id="tab3">
+			  <a href="#"><span>Dresses</span></a>
+			  <a href="#"><span>Shirts</span></a>
+			  <a href="#"><span>Jeans</span></a>
+			  <a href="#"><span>Shoes</span></a>
+		</div>
+	</div>
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu4()'>Экскурсии для детей</button>
+		<div class = 'menu' id="tab4">
+			  <a href="#"><span>Dresses</span></a>
+			  <a href="#"><span>Shirts</span></a>
+			  <a href="#"><span>Jeans</span></a>
+			  <a href="#"><span>Shoes</span></a>
+		</div>
+	</div>
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu5()'>О нас</button>
+		<div class = 'menu' id="tab5">
+			  <a href="#"><span>Dresses</span></a>
+			  <a href="#"><span>Shirts</span></a>
+			  <a href="#"><span>Jeans</span></a>
+			  <a href="#"><span>Shoes</span></a>
+		</div>
+	</div>
+	<div class = 'dropdown_list'>
+		<button class="CATEGORIES" onclick = 'clMenu6()'>Контакты</button>
+		<div class = 'menu' id="tab6">
+			  <a href="#"><span>Dresses</span></a>
+			  <a href="#"><span>Shirts</span></a>
+			  <a href="#"><span>Jeans</span></a>
+			  <a href="#"><span>Shoes</span></a>
+		</div>
+	</div>
+</div>
+<div class='text1'>
+<p style='font-family: segoe script;'> С нами вы получите незабываемые эмоции </p>
+<h2> Популярные туры </h2>
+	<div class = 'owl-carousel'>
+		<div class = 'item'><img src = "{% static 'images/image2/teriberka.jpg' %}"><div class = 'nazvanie'>Териберка</div></div>
+		<div class = 'item'><img src = "{% static 'images/image2/Elbrus.jpg' %}"><div class = 'nazvanie'>Эльбрус</div></div>
+		<div class = 'item'><img src = "{% static 'images/image2/nepal.jpg' %}"><div class = 'nazvanie'>Непал</div></div>
+		<div class = 'item'><img src = "{% static 'images/image2/kamchatka.jpg' %}"><div class = 'nazvanie'>Камчатка</div></div>
+		<div class = 'item'><img src = "{% static 'images/image2/altai.jpg' %}"><div class = 'nazvanie'>Алтай</div></div>
+		<div class = 'item'><img src = "{% static 'images/image2/turkey.jpg' %}"><div class = 'nazvanie'>Кападокия</div></div>
+	</div>
+</div>
+<hr>
+<div id = 'text_reclamy'>
+	<img  src = "{% static 'images/image2/861c5da34b1eee339520f94e774f206b.jpg' %}">
+	<p style="font-size: 22px; font-weight: bold; margin-top: 150px; margin-bottom:0px;">Приглашаем тебя в мир приключений! </p>
+	<p style = 'font-size: 20px;'> Мы предлагаем:<br>
+	Покорение горных вершин - испытай себя на прочность, насладись панорамными видами и почувствуй свободу!<br>
+	Незабываемые велопрогулки - исследуй живописные маршруты, дыши свежим воздухом и зарядись адреналином!<br>
+	Водные приключения - сплавляйся по бурным рекам, покоряй волны на серфе или просто отдохни на пляже!<br>
+	Походы по дикой природе - познакомься с красотами леса, окунись в тишину и единение с природой!<br>
+	Не откладывай на завтра то, что можно сделать сегодня!</p>
+	<a href="#"><p id="zapis"> Запишись на тур уже сейчас!</p></a>
+</div>
+<div class="nav">
+	<div class="moviecontainer">
+		<div style='width:80%;'>
+			<iframe src="https://vk.com/video_ext.php?oid=-146198891&id=456239198&hash=f68430732ce67684" width="300" height="160" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+			<iframe src="https://vk.com/video_ext.php?oid=181640609&id=456241315&hash=01032cd801c9fb25" width="300" height="160" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+			<iframe src="https://vk.com/video_ext.php?oid=-134397408&id=456242345&hash=dd2b952269430eea" width="300" height="160" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+		</div>
+	</div>
+	<div id = "text2"><p> НАШИ<br> НОВЫЕ<br> ПРЕДЛОЖЕНИЯ! </p></div>
+</div>
+<script src="{% static 'js/script.js' %}">
+
+</script>
+</body>
+<footer>
+
+</footer>
+</html>
