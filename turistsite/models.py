@@ -5,9 +5,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class MyTour(models.Model):
-    number = models.IntegerField(default=1, verbose_name='Номер записи')
-    title = models.CharField(max_length=120, verbose_name='Название')
-    description_1 = RichTextField(verbose_name='Описание_1', blank=True, null=True)
+    title = models.TextField(max_length=120, verbose_name='Название')
+    description_1 = models.TextField(verbose_name='Описание_1')
     description_2 = RichTextField(verbose_name='Описание_2')
     image = models.ImageField(upload_to='image1', verbose_name='Изображения', default='')
     date_1 = models.DateField(verbose_name='Дата тура_1', default=datetime.now)

@@ -1,11 +1,11 @@
 <p>
-  <a class="k btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleTwo{{ item.id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
-      {{ item.description_1 }}
+  <a style='width: 60%; color: #D2691E; ' class="k btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleTwo{{ item.id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+      {{ item.description_1|safe }}
   </a>
 </p>
 				<div class="collapse" id="collapseExampleTwo{{ item.id }}">
-					<div class="card card-body">
-                        {{ item.description_2 }}
+					<div class="card card-body" style="text-align: left">
+                        {{ item.description_2|safe }}
                     <div>
 	<div style='float: left'>
 		<strong style='color: #D2691E;'>Ближайшие даты:</strong>
@@ -35,7 +35,7 @@
     </h2>
     <div id="collapse{{ item.id }}_1" class="accordion-collapse collapse show" data-bs-parent="#accordion{{ item.id }}">
       <div class="accordion-body">
-          {{ item.program }}
+          {{ item.program|safe }}
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
       <div class="accordion-body">
         {{ item.includeprice }}
 		<hr>
-		{{ item.not_includeprice }}
+		{{ item.not_includeprice|safe }}
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
 	Форма одежды походная (спортивно-свободная) соответствующая погодным условиям.
 	Удобная обувь (треккинговая или закрытая кожаная обувь - должна быть непромокаемая).
 	<hr>
-	    {{ item.pamiatka }}
+	    {{ item.pamiatka|safe }}
       </div>
     </div>
   </div>
