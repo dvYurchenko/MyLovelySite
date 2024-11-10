@@ -1,9 +1,10 @@
 {% for item in tur %}
 <!-- Стиль_1-->
-{% if item.id|divisibleby:"2" %}
+{% if item.number|divisibleby:"2" %}
 <div id = 'usv_stolbi'>
 		<img id='pict_USVA'  src = "{{ MEDIA_URL }} {{ item.image.url }}">
-		<div style="width: 63%;" id = 'text_usv_stolbi'><p class = 'vibor'> {{ item.title }} </p>
+		<div style="width: 63%;" id = 'text_usv_stolbi'><p class = 'vibor' style="width: 60%;"> {{ item.title|safe }} </p>
+            <div class = vstavka></div>
             {% include 'shablon.html' %}
         </div>
 </div>
@@ -11,7 +12,8 @@
 <!-- Стиль_2-->
 <div id = 'polud_vetlan'>
     <img id='pict_PV'  src = "{{ MEDIA_URL }} {{ item.image.url }}">
-    <div style='width: 63%;' id = 'text_polud_vetlan'><p class = 'vibor'> {{ item.title }} </p>
+    <div style='width: 63%;' id = 'text_polud_vetlan'><p class = 'vibor' > {{ item.title|safe }} </p>
+        <div class = vstavka style="transform:scale(1, -1) rotate(205deg) !important; left: -23% !important; "></div>
       {% include 'shablon.html' %}
 	</div>
 </div>

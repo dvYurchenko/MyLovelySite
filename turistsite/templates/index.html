@@ -22,20 +22,19 @@
 <div class = 'menu1'></div>
 <div class="dropdown">
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu1()'>Туры по Пермскому краю</button>
+		<button class="CATEGORIES" onclick = 'clMenu1()'>Туры по Пермскому краю </button>
 		<div class = 'menu' id="tab1">
-			  <a href="{% url 'first' %}#usv_stolbi"><span>Усьвинские столбы</span></a>
-			  <a href="{% url 'first' %}#polud_vetlan"><span>Гора Полюд и скалы Ветлан</span></a>
-			  <a href="{% url 'first' %}#zhigalan_vodopadi"><span>Хребет Кваркуш и Жигаланские водопады</span></a>
+			  <a href="{% url 'first' %}"><span>Усьвинские столбы</span></a>
+			  <a href="{% url 'first' %}"><span>Гора Полюд и скалы Ветлан</span></a>
+			  <a href="{% url 'first' %}"><span>Хребет Кваркуш и Жигаланские водопады</span></a>
 		</div>
 	</div>
 	<div class = 'dropdown_list'>
 		<button class="CATEGORIES" onclick = 'clMenu2()'>Туры по Уралу</button>
 		<div class = 'menu' id="tab2">
-			  <a href="#"><span>Dresses</span></a>
-			  <a href="#"><span>Shirts</span></a>
-			  <a href="#"><span>Jeans</span></a>
-			  <a href="#"><span>Shoes</span></a>
+			  <a href="{% url 'second' %}"><span>Dresses</span></a>
+			  <a href="{% url 'second' %}"><span>Shirts</span></a>
+			  <a href="{% url 'second' %}"><span>Jeans</span></a>
 		</div>
 	</div>
 	<div class = 'dropdown_list'>

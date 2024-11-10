@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class MyTour(models.Model):
+    number = models.IntegerField(verbose_name='Номер тура', default=1)
     title = models.TextField(max_length=120, verbose_name='Название')
     description_1 = models.TextField(verbose_name='Описание_1')
     description_2 = RichTextField(verbose_name='Описание_2')

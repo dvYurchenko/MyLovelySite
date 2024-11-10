@@ -11,6 +11,7 @@
 	opacity: 0.2;
 	z-index: -1;
 }
+
 section {
     position: relative;/*относительное позиционирование*/
     width: 100%;/*секция на всю ширину экрана*/
@@ -29,7 +30,33 @@ section .fon_top {
 	72% 94%, 70% 99%, 68% 93%, 64% 95%, 62% 90%, 59% 94%, 57% 98%, 53% 96%, 50% 99%, 48% 94%, 44% 99%, 41% 96%, 39% 99%, 36% 98%, 34% 100%, 31% 97%, 28% 99%, 25% 95%, 23% 100%, 
 	21% 98%, 18% 100%, 15% 95%, 12% 98%, 10% 95%, 8% 97%, 6% 93%, 3% 99%, 0% 100%, 0% 100%);
 }
+section .fon_top_1 {
+	background: url(images/193135.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 40vh;
+	width: 100%;
+	position: absolute;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 98%, 98% 100%, 96% 96%, 94% 93%, 93% 100%, 92% 95%, 87% 97%, 84% 95%, 82% 99%, 77% 97%, 73% 100%,
+	72% 94%, 70% 99%, 68% 93%, 64% 95%, 62% 90%, 59% 94%, 57% 98%, 53% 96%, 50% 99%, 48% 94%, 44% 99%, 41% 96%, 39% 99%, 36% 98%, 34% 100%, 31% 97%, 28% 99%, 25% 95%, 23% 100%,
+	21% 98%, 18% 100%, 15% 95%, 12% 98%, 10% 95%, 8% 97%, 6% 93%, 3% 99%, 0% 100%, 0% 100%);
+}
 
+.vstavka{
+    background: url(images/strelka.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 664px;
+	box-shadow: none;
+	background-size: contain;
+	height: 359px;
+	position: absolute;
+	z-index: -1;
+	opacity: 0.4;
+	left: 55%;
+	transform: rotate(25deg);
+}
 #text_Perm {
 	position: absolute;
 	display: flex;
@@ -61,18 +88,23 @@ section .fon_top {
 	-webkit-text-stroke: 0.3px black;
 }
 
+#usv_stolbi{
+	position: relative;
+	display: block;
+}
+
 #pict_USVA {
 	position: relative;
 	float:right;
 	margin-right: 1%;
-	margin-top: 50px;
+	margin-top: -5%;
 	box-shadow:0px 0px 10px 0px #808080;
 	border-radius: 20px;
 }
 #text_usv_stolbi{
 	position: relative;	
 	margin-top: 10%;
-	margin-bottom: 25%;
+	margin-bottom: 20%;
 	font-family: Palatino Linotype;
 	font-size: 18px;
 	/* color: #D2691E; */
@@ -98,13 +130,13 @@ ul {
 #polud_vetlan{
 	position: relative;
 	display: block;
-	height: 5%;
 }
 
 #text_polud_vetlan {
  	position: relative;
 	display: inline-block;
-	margin-top: 5%;
+	margin-top: 10%;
+	margin-bottom: 25%;
 	font-family: Palatino Linotype;
 	font-size: 18px;
 	right: -1%;
@@ -115,7 +147,7 @@ ul {
 	position: relative;
 	float: left;
 	margin-left: 1%;
-	margin-top: 120px;
+	margin-top: 15%;
 	box-shadow:0px 0px 10px 0px #808080;
 	border-radius: 20px;	
 }
@@ -124,7 +156,7 @@ img  {
 	width:33%;
 }
 .k{
-	background-color: rgba(255, 250, 250, 0.6) !important; 
+	background-color: rgba(255, 250, 250, 0.6) !important;
 	box-shadow:0px 0px 10px 0px #808080 !important;
 	border:none !important; 
 	color: #D2691E !important;
@@ -136,7 +168,7 @@ img  {
 #the_end{
 	position: relative;
 	display: flex;
-	margin-top: 30%;
+    margin-top: -10%;
 	width: 100%;
 
 }
@@ -148,7 +180,7 @@ img  {
 	background-size: cover;
 	height: 60vh;
 	width: 100%;
-	margin-top: 5%;
+	margin-top: 20%;
 	clip-path: polygon(0% 0%, 3% 0, 7% 1%, 11% 0%, 16% 2%, 20% 0, 23% 2%, 28% 2%, 32% 1%, 35% 1%, 39% 3%, 41% 1%, 
 	45% 0%, 47% 2%, 50% 2%, 53% 0, 58% 2%, 60% 2%, 63% 1%, 65% 0%, 67% 2%, 69% 2%, 73% 1%, 76% 1%, 79% 0, 82% 1%, 
 	85% 0, 87% 1%, 89% 0, 92% 1%, 96% 0, 98% 2%, 100% 0%, 100% 100%, 0% 100%);
