@@ -1,8 +1,7 @@
-from django.db import models
 from ckeditor.fields import RichTextField
 from datetime import datetime
-from django.utils import timezone
-from django.contrib.auth.models import User
+from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class MyTour(models.Model):
     number = models.IntegerField(verbose_name='Номер тура', default=1)
@@ -31,3 +30,10 @@ class MyTour(models.Model):
 
     def __str__(self):
         return self.title
+
+class CustomUser(AbstractUser):
+    # Добавляем дополнительные поля
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+
+    def __str__(self):
+        return self.username
