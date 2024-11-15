@@ -31,9 +31,3 @@ class MyTour(models.Model):
     def __str__(self):
         return self.title
 
-class CustomUser(AbstractUser):
-    # Добавляем дополнительные поля
-    phone_number = models.CharField(max_length=15, blank=True, null=True)
-
-    def __str__(self):
-        return self.username

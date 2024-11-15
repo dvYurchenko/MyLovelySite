@@ -10,18 +10,24 @@
 	<script src="{% static 'js/owl.carousel.min.js' %}"> </script>
 	<title> Путешествуй с нами </title>
 </head>
-
+<header>
+	<div class = 'registrazia'>
+  		{%if request.user.is_authenticated %}
+  			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
+				<a href="{% url 'login' %}"><img src = "{% static 'images/image2/cancel.png' %}"></a></div>
+  		{%else%}
+  			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
+				<a href="{% url 'login' %}"><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></a></div>
+  		{%endif%}
+	</div>
+  	</header>
 <body>
+<!--
 <div class = 'registrazia'>
-	<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></div>
+	<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
+		<a href="{% url 'login' %}"><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></a></div>
 </div>
-{% if messages %}
-        	{% for message in messages %}
-          	<div class="alert alert-{{ message.tags }}">
-            	{{ message }}
-          	</div>
-        	{% endfor %}
-{% endif %}
+-->
 <div class = 'navigation1'></div>
 <div class="navigation">
   <p id = 'text'> Мир слишком велик,<br> чтобы сидеть на одном месте </p>

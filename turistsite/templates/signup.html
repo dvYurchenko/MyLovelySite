@@ -1,10 +1,27 @@
-{% extends 'index.html' %}
-
+<!DOCTYPE html>
+{% load static %}
+<link rel='stylesheet' href = "{% static 'css/style_3.css' %}">
+<body>
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
+<div class="castomForm">
+<form method="POST" novalidate id = 'my_form'>
+	{% csrf_token %}
+	<h2 style="text-align: center;">Зарегистрироваться</h2>
+
+	{% for field in form %}
+	<p>
+		{% if field.errors %}
+		<ul class="errorlist">
+			{% for error in field.errors %}
+			<li style="color: red; font-size: 14px; list-style: none;">{{ error }} </li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	 	{{ field.label_tag }} {{ field }}
+	</p>
+	{% endfor %}
+	<input type="submit" id="send_form" value="Отправить" />
 </form>
+</div>
 {% endblock content %}
+</body>

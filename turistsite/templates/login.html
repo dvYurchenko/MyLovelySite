@@ -1,10 +1,18 @@
-{% extends 'index.html' %}
+<!DOCTYPE html>
+{% load static %}
+<link rel='stylesheet' href = "{% static 'css/style_3.css' %}">
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
+<div class="castomForm">
+<form method="post" id = 'my_form'>
+  <h2>Вход</h2>
+  <p><b>Если вы зарегистрированы на нашем сайте,<br> то используйте свои данные для входа в личный кабинет.</b></p>
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Log In</button>
+  <button type="submit" id="send_form">Войти</button>
+  <hr>
+  <p><b> <a  style="text-decoration: none; color: Navy" href="{% url 'signup' %}"> Пройти регистрацию </a></b></p>
 </form>
+</div>
 {% endblock content %}
+</body>

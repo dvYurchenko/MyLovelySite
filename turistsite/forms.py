@@ -1,14 +1,22 @@
 from django import forms
-from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Обязательное поле. Введите действующий email.')
+    email = forms.EmailField(max_length=254, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+    first_name = forms.CharField(max_length=100, label='Имя', widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
+    last_name = forms.CharField(max_length=100, label='Фамилия', widget=forms.TextInput(attrs={'placeholder': 'Ваша фимилия'}))
+
 
     class Meta:
-        model = CustomUser
-        fields = ('username', 'email', 'password1', 'password2')
+        model = User
+        fields = ('username', 'password1', 'password2', 'first_name', 'last_name', 'email')
+
+    def clean_first_name(self):
+        first_name = self.cleaned_data.get('first_name')
+        if first_name.lower().find(" ") != -1:
+            raise forms.ValidationError("Имя не должно содержать пробелы.")
+        return first_name
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Имя пользователя')
@@ -27,11 +35,7 @@ class LoginForm(AuthenticationForm):
         #model = User
         #fields = ('username', 'second_name', 'surname', 'birthday', 'email', 'phone_number', 'password1', 'password2')
 
-    #def clean_username(self):
-        #username = self.cleaned_data.get('username')
-        #if ' ' in username:
-            #raise forms.ValidationError("Не должно быть пробелов")
-        #return username
+
 
     #def clean(self):
         #cleaned_data = super().clean()
