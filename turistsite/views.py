@@ -25,6 +25,14 @@ def second(request):
     context={'tur_PERM':tur_PERM, 'tur_URAL':tur_URAL, 'tur_ACT':tur_ACT, 'tur_CHILD':tur_CHILD}
     return render(request, 'second.html', context=context)
 
+def third(request):
+    tur_PERM = MyTour.objects.filter (type__exact = "PERM")
+    tur_URAL = MyTour.objects.filter(type__exact="URAL")
+    tur_ACT = MyTour.objects.filter(type__exact="ACT")
+    tur_CHILD = MyTour.objects.filter(type__exact="CHILD")
+    context={'tur_PERM':tur_PERM, 'tur_URAL':tur_URAL, 'tur_ACT':tur_ACT, 'tur_CHILD':tur_CHILD}
+    return render(request, 'third.html', context=context)
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
