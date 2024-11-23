@@ -3,7 +3,7 @@ from django.urls import path, URLPattern
 from turistsite import views
 from turistsite.views import first
 from django.views import View
-from .views import signup_view, login_view
+from .views import signup_view, login_view#, booking
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('third/', views.third, name='third'),
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
+    #path('booking/', booking, name='booking'),
 ]

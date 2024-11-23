@@ -1,12 +1,16 @@
 from django import forms
+#from turistsite.models import Booking
+from rest_framework import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
     first_name = forms.CharField(max_length=100, label='Имя', widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
     last_name = forms.CharField(max_length=100, label='Фамилия', widget=forms.TextInput(attrs={'placeholder': 'Ваша фимилия'}))
-
 
     class Meta:
         model = User
@@ -21,6 +25,22 @@ class SignUpForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Имя пользователя')
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+
+#class MyBooking(ModelForm):
+        #first_name = forms.CharField(label='Имя')
+        #last_name = forms.CharField(label='Фамилия')
+        #title_of_trip = forms.CharField(label='Название тура')
+        #col_of_ank = forms.IntegerField(label='Количество взрослых')
+        #col_of_child = forms.IntegerField(label='Количество детей')
+        #price_ank = forms.IntegerField(label='Цена за взрослого')
+        #price_child = forms.IntegerField(label='Цена за ребенка')
+        #checkin_date = forms.DateField()
+        #email = forms.EmailField(label='Ваш email')
+        #price = forms.IntegerField(label='Общая стоимость')
+
+        #class Meta:
+            #model = Booking
+            #fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "price_ank", "price_child", "checkin_date", "email", " price"]
 
 #class SignUpForm(UserCreationForm):
     #name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Вашя имя'}))

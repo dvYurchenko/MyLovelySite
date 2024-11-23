@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from turistsite.models import MyTour
+from turistsite.models import MyTour, Booking
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm#, MyBooking
 from django.contrib import messages
 
 
@@ -55,3 +55,13 @@ def login_view(request):
                 login(request, user)     # Выполняем вход
                 return redirect('home')  # Перенаправляем на главную страницу
     return render(request, 'login.html', {'form': form})
+
+#def booking(request):
+    #if request.method == 'POST':
+        #form = MyBooking(request.POST)
+        #if form.is_valid():
+            #form.save()  # Сохраняем нового пользователя
+            #return redirect('home')  # Перенаправляем на главную страницу
+    #else:
+        #form = MyBooking()
+    #return render(request, 'booking.html', {'form': form})
