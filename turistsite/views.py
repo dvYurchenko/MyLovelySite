@@ -1,8 +1,13 @@
+from lib2to3.fixes.fix_input import context
+
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render
+from django.template.loader import get_template
+
 from turistsite.models import MyTour, Booking
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, LoginForm#, MyBooking
+from .forms import SignUpForm, LoginForm, ContactForm  # , MyBooking
 from django.contrib import messages
 
 
@@ -55,6 +60,31 @@ def login_view(request):
                 login(request, user)     # Выполняем вход
                 return redirect('home')  # Перенаправляем на главную страницу
     return render(request, 'login.html', {'form': form})
+
+def contacts(request):
+    context={}
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            send_message(form.cleaned_data['name'], form.cleaned_data['email'], form.cleaned_data['message'])
+            context={'success':1}
+    else:
+        form=ContactForm()
+    context['form']=form
+    return render(request, 'contacts.html', context=context)
+
+def send_message(name, email, message):
+    text=get_template('message.html')
+    html = get_template('message.html')
+    context = {'name': name, 'email':email, 'message':message}
+    subject = 'Сообщение от пользователя'
+    from_email='turist@example.com'
+    text_content = text.render(context)
+    html_content = html.render(context)
+
+    msg=EmailMultiAlternatives(subject, text_content, from_email, ['yurchenko.dasha13@gmail.com'])
+    msg.attach_alternative(html_content,'text/html')
+    msg.send()
 
 #def booking(request):
     #if request.method == 'POST':

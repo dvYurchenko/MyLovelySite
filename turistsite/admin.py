@@ -6,5 +6,3 @@ admin.site.register(MyTour)
 admin.site.register(Booking)
 
 
-class ModelAdmin:
-    pass

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, URLPattern
 from turistsite import views
-from turistsite.views import first
+from turistsite.views import contacts
 from django.views import View
 from .views import signup_view, login_view#, booking
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path('third/', views.third, name='third'),
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
+    path('contacts', contacts, name='contacts')
     #path('booking/', booking, name='booking'),
 ]

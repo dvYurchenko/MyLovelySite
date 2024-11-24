@@ -1,10 +1,10 @@
+from datetime import timezone, datetime
 from django import forms
 #from turistsite.models import Booking
 from rest_framework import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.forms import ModelForm
-
+from django.forms import ModelForm, DateInput, DateTimeField
 
 
 class SignUpForm(UserCreationForm):
@@ -26,6 +26,10 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Имя пользователя')
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
 
+class ContactForm(forms.Form):
+    name=forms.CharField(min_length=2, widget=forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class':'form_control'}))
+    email=forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email', 'class':'form_control'}))
+    message=forms.CharField(min_length=5, widget=forms.Textarea(attrs={'placeholder': 'Сообщение','col':30, 'rows': 9, 'class':'form_contr_1'}))
 #class MyBooking(ModelForm):
         #first_name = forms.CharField(label='Имя')
         #last_name = forms.CharField(label='Фамилия')
