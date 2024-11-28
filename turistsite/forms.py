@@ -1,9 +1,12 @@
 from datetime import timezone, datetime
+
+from ckeditor import widgets
 from django import forms
-#from turistsite.models import Booking
+#from models import Booking1
 from rest_framework import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from turistsite.models import Booking1, MyTour
 from django.forms import ModelForm, DateInput, DateTimeField
 
 
@@ -30,21 +33,14 @@ class ContactForm(forms.Form):
     name=forms.CharField(min_length=2, widget=forms.TextInput(attrs={'placeholder': 'Ваше имя', 'class':'form_control'}))
     email=forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email', 'class':'form_control'}))
     message=forms.CharField(min_length=5, widget=forms.Textarea(attrs={'placeholder': 'Сообщение','col':30, 'rows': 9, 'class':'form_contr_1'}))
-#class MyBooking(ModelForm):
-        #first_name = forms.CharField(label='Имя')
-        #last_name = forms.CharField(label='Фамилия')
-        #title_of_trip = forms.CharField(label='Название тура')
-        #col_of_ank = forms.IntegerField(label='Количество взрослых')
-        #col_of_child = forms.IntegerField(label='Количество детей')
-        #price_ank = forms.IntegerField(label='Цена за взрослого')
-        #price_child = forms.IntegerField(label='Цена за ребенка')
-        #checkin_date = forms.DateField()
-        #email = forms.EmailField(label='Ваш email')
-        #price = forms.IntegerField(label='Общая стоимость')
 
-        #class Meta:
-            #model = Booking
-            #fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "price_ank", "price_child", "checkin_date", "email", " price"]
+class MyBooking(forms.ModelForm):
+    title_of_trip = forms.ModelChoiceField(queryset=MyTour.objects.all(), label='Название тура')
+    email = forms.EmailField(label='Email')
+
+    class Meta:
+         model = Booking1
+         fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "price_child", "checkin_date", "email"]
 
 #class SignUpForm(UserCreationForm):
     #name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Вашя имя'}))

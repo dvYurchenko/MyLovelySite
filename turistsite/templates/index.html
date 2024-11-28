@@ -5,29 +5,27 @@
 	<script src = "{% static 'js/jquery-3.7.1.min.js' %}"></script>
 	<meta charset = 'UTF-8'>
 	<link rel='stylesheet' href = "{% static 'css/style_1.css' %}">
+	{% block head %}
 	<link rel='stylesheet' href = "{% static 'css/owl.carousel.min.css' %}">
 	<link rel='stylesheet' href = "{% static 'css/owl.carousel.css' %}">
 	<script src="{% static 'js/owl.carousel.min.js' %}"> </script>
 	<title> Путешествуй с нами </title>
+	{% endblock head %}
 </head>
 <header>
 	<div class = 'registrazia'>
-  		{%if request.user.is_authenticated %}
-  			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
-				<a href="{% url 'login' %}"><img src = "{% static 'images/image2/cancel.png' %}"></a></div>
+		{%if request.user.is_authenticated %}
+			<span style="font-family: segoe script; color: #696969;">Добро пожаловать в мир путешествий </span>
+			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
+
+  			<a href="{% url 'logout' %}"><img src = "{% static 'images/image2/cancel.png' %}"></a></div>
   		{%else%}
-  			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
-				<a href="{% url 'login' %}"><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></a></div>
+			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
+  			<a href="{% url 'login' %}"><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></a></div>
   		{%endif%}
 	</div>
   	</header>
 <body>
-<!--
-<div class = 'registrazia'>
-	<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 15px;'>
-		<a href="{% url 'login' %}"><img src = "{% static 'images/image2/icons8-кнопка-end-100.png' %}"></a></div>
-</div>
--->
 <div class = 'navigation1'></div>
 <div class="navigation">
   <p id = 'text'> Мир слишком велик,<br> чтобы сидеть на одном месте </p>
@@ -35,52 +33,26 @@
 <div class = 'menu1'></div>
 <div class="dropdown">
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu1()'>Туры по Пермскому краю </button>
-		<div class = 'menu' id="tab1">
-			  <a href="{% url 'first' %}"><span>Усьвинские столбы</span></a>
-			  <a href="{% url 'first' %}"><span>Гора Полюд и скалы Ветлан</span></a>
-			  <a href="{% url 'first' %}"><span>Хребет Кваркуш и Жигаланские водопады</span></a>
-		</div>
+		<button class="CATEGORIES" onclick = 'clMenu1()'><a href="{% url 'first' %}" style="color:#000080;"><span>Туры по Пермскому краю</span></a></button>
+
 	</div>
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu2()'>Туры по Уралу</button>
-		<div class = 'menu' id="tab2">
-			  <a href="{% url 'second' %}"><span>Dresses</span></a>
-			  <a href="{% url 'second' %}"><span>Shirts</span></a>
-			  <a href="{% url 'second' %}"><span>Jeans</span></a>
-		</div>
+		<button class="CATEGORIES" onclick = 'clMenu2()'><a href="{% url 'second' %}" style="color:#000080;"><span>Туры по Уралу</span></a></button>
 	</div>
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu3()'>Активный отдых</button>
-		<div class = 'menu' id="tab3">
-			  <a href="{% url 'third' %}"><span>Dresses</span></a>
-			  <a href="{% url 'third' %}"><span>Shirts</span></a>
-			  <a href="{% url 'third' %}"><span>Jeans</span></a>
-			  <a href="{% url 'third' %}"><span>Shoes</span></a>
-		</div>
+		<button class="CATEGORIES" onclick = 'clMenu3()'><a href="{% url 'third' %}" style="color:#000080;"><span>Активный отдых</span></a></button>
 	</div>
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu4()'>Экскурсии для детей</button>
-		<div class = 'menu' id="tab4">
-			  <a href="#"><span>Dresses</span></a>
-			  <a href="#"><span>Shirts</span></a>
-			  <a href="#"><span>Jeans</span></a>
-			  <a href="#"><span>Shoes</span></a>
-		</div>
+		<button class="CATEGORIES" onclick = 'clMenu4()'><a href="#" style="color:#000080;"><span>Экскурсии для детей</span></a></button>
 	</div>
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu5()'>О нас</button>
-		<div class = 'menu' id="tab5">
-			  <a href="#"><span>Dresses</span></a>
-			  <a href="#"><span>Shirts</span></a>
-			  <a href="#"><span>Jeans</span></a>
-			  <a href="#"><span>Shoes</span></a>
-		</div>
+		<button class="CATEGORIES" onclick = 'clMenu5()'><a href="{% url 'about' %}" style="color:#000080;"><span>О нас</span></a></button>
 	</div>
 	<div class = 'dropdown_list'>
-		<button class="CATEGORIES" onclick = 'clMenu6()'><a href="{% url 'contacts' %}"><span>Контакты</span></a></button>
+		<button class="CATEGORIES" onclick = 'clMenu6()'><a href="{% url 'contacts' %}" style="color:#000080;"><span>Контакты</span></a></button>
 	</div>
 </div>
+{% block content %}
 <div class='text1'>
 <p style='font-family: segoe script;'> С нами вы получите незабываемые эмоции </p>
 <h2> Популярные туры </h2>
@@ -122,4 +94,5 @@
 <footer>
 
 </footer>
+{% endblock content %}
 </html>
