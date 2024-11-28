@@ -24,7 +24,13 @@
 		</ul>
 	</div>
 </div>
-<button class='my_costom_button'>&#9989; Забронировать тур!</button><br>
+
+{%if request.user.is_authenticated %}
+    <button class='my_costom_button'><a href="{% url 'booking' %}" style="color:#D2691E; text-decoration: none;">&#9989; Забронировать тур!</a></button><br>
+{%else%}
+    <button onclick="regist()" class='my_costom_button'>&#9989; Забронировать тур!</a></button><br>
+
+{%endif%}
 	<!-- Описание тура -->
 <div class="accordion" id="accordion{{ item.id }}">
   <div class="accordion-item">
@@ -73,3 +79,7 @@
 <!-- Конец описания тура -->
 		</div>
 </div>
+<script>
+    function regist(){
+        alert('Пожалуйста, пройдите регистрацию')}
+</script>
