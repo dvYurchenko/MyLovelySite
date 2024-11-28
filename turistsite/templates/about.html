@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+
+<head>
+  {% block head %}
+  {% load static %}
+	<title> O нас</title>
+	<link rel='stylesheet' href = "{% static 'css/style_5.css' %}">
+  {% endblock head %}
+</head>
+{% block content %}
+<body>
+<div class="responsive-container-block bigContainer">
+  <div class="responsive-container-block Container">
+    <div class="imgContainer"> 
+      <img class="mainImg" src="{% static 'images/image1/e80b651a8c35f875cd2d9e2e96f06deb.jpg' %}">
+    </div>
+    <div class="responsive-container-block textSide">
+
+      <p class="text-blk subHeading">
+         Мы - команда заядлых путешественников и энтузиастов приключений, которые создали туристическую фирму, чтобы поделиться своей страстью к изучению мира с другими.
+			Мы верим, что путешествия - это не просто посещение новых мест, а глубокое погружение в разные культуры, знакомство 
+			с местными жителями и создание незабываемых воспоминаний. Мы хотим, чтобы каждый наш клиент испытал мир всеми своими пятью чувствами 
+			и вернулся домой обогащенным и вдохновленным.
+      </p>
+      <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+        <div class="cardImgContainer">
+          <img class="cardImg" src="{% static 'images/image1/b47ee2fd4b3493b0e5ab4c1e4cf483b3.jpg' %}">
+        </div>
+        <div class="cardText">
+          <p class="text-blk cardHeading">
+            Наша миссия
+          </p>
+          <p class="text-blk cardSubHeading">
+            Наша миссия - предоставлять исключительные туристические возможности, которые оставят неизгладимые впечатления в жизни наших клиентов.
+          </p>
+        </div>
+      </div>
+      <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+        <div class="cardImgContainer">
+          <img class="cardImg" src="{% static 'images/image1/79f1b72994ce35b3b73cfa7169cd2d1b.jpg' %}">
+        </div>
+        <div class="cardText">
+          <p class="text-blk cardHeading">
+            Наши услуги
+          </p>
+          <p class="text-blk cardSubHeading">
+            Мы предлагаем широкий спектр туристических услуг, включая активные и семейные туры.
+          </p>
+        </div>
+      </div>
+      <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+        <div class="cardImgContainer">
+          <img class="cardImg" src="{% static 'images/image1/b398e14a8be139e542785a3a932b0b82.jpg' %}">
+        </div>
+        <div class="cardText">
+          <p class="text-blk cardHeading">
+           Наши принципы
+          </p>
+          <p class="text-blk cardSubHeading">
+            Опытные гиды и качественный сервис позволят вам отвлечься от городской суеты и максимально насладиться походом, а все
+			организационные вопросы мы возьмем на себя!
+          </p>
+        </div>
+      </div>
+      <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+        <div class="cardImgContainer">
+          <img class="cardImg" src="{% static 'images/image1/5b8c56d6f73fdabdb9dc3ec8c9012b2e.jpg' %}">
+        </div>
+        <div class="cardText">
+          <p class="text-blk cardHeading">
+            Присоединяйтесь к нам
+          </p>
+          <p class="text-blk cardSubHeading">
+            Более 1000 наших довольных клиентов уже открыли для себя Урал с новой стороны! Присоединяйся и ты... 
+          </p>
+        </div>
+      </div>
+      <a>
+        <button class="explore"><a href="{% url 'contacts' %}"  style="color:white; text-decoration: none;">
+          Контакты
+        </a></button>
+      </a>
+    </div>
+    <img class="redDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg">
+  </div>
+</div>
+</body>
+{% endblock content %}
+</html>

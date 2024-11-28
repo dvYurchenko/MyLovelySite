@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+<head>
+{% block head %}
+	{% load static %}
+	<title> Контакты</title>
+	<link rel ="stylesheet" href = "{% static 'css/style_4.css' %}">
+{% endblock head %}
+</head>
+
+{% block content %}
+<body>
+	<div >
+	<ul>
+			<li> Электронная почта: </li>
+			<li> puteshestvui@mail.ru </li><br>
+			<li> Контактный номер: </li>
+			<li> +7(922)1123273</li>
+	</ul>
+	<ul>
+			<li> Мы находимя по адресу: </li>
+			<li> Ш. Космонавтов 1, офис 2 </li><br>
+			<li> Время работы: ежедневно </li>
+			<li> с 10:00 до 19:00 </li>
+	</ul>
+		<ul class='block'>
+			<li> Мы в соц. сетях: </li>
+			<li>
+				<a href ="#"><img class='fn' src="{% static 'images/image1/fb_gray.png' %}" width='35px' height='35px'></a>
+			</li>
+			<li>
+				<a href ="#"><img class='inst' src="{% static 'images/image1/insta_gray.png' %}" width='35px' height='35px'></a>
+			</li>
+			<li>
+				<a href ="#"><img class='ytub' src="{% static 'images/image1/youtube_gray.png' %}" width='35px' height='35px'></a>
+			</li>
+			<li> Мессенджеры: </li>
+			<li>
+				<a href ="#"><img class='vatzap' src="{% static 'images/image1/icons8-whatsapp-80.png' %}" width='35px' height='35px'></a>
+			</li>
+			<li>
+				<a href ="#"><img class='telegramm' src="{% static 'images/image1/icons8-телеграм-50.png' %}" width='35px' height='35px'></a>
+			</li>
+		</ul>
+	</div>
+	<div id = 'carta'>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2114.1580636557633!2d56.22928951383745!3d58.00209169922452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43e8c731d8dd07db%3A0xe536fe0058aca03c!2z0YguINCa0L7RgdC80L7QvdCw0LLRgtC-0LIsIDEsINCf0LXRgNC80YwsINCf0LXRgNC80YHQutC40Lkg0LrRgNCw0LksIDYxNDAxNg!5e0!3m2!1sru!2sru!4v1732031875539!5m2!1sru!2sru" 
+			<!-- width="90%" height="450" style="border:0;" --> allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+		</iframe>
+	</div>
+	<div id='forum'>
+		<h2> Вы можете оставить отзыв о нас  </h2>	
+		<hr style="margin-top: 3%;">
+			<form id = 'addComments' method="post" action="" novalidate="novalidate">
+				{% csrf_token %}
+				{% if success %}
+					<strong> Спасибо за Ваш отзыв!  </strong>
+				{% else %}
+					<div class="my_col">
+						<div style="position:relative; float:left;">
+							{{form.name}}
+							<div class="my_errors">
+								{% if form.name.errors %}
+								{{form.name.errors}}
+							{% endif %}
+							</div>
+						</div>
+						<div style="position:relative; float:right; margin-left: 20px;">
+							{{form.email}}
+							<div class="my_errors">
+								{% if form.email.errors %}
+									{{form.email.errors}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+
+					<div  class="my_col_1">
+							{{form.message}}
+							<div class="my_errors" style="position: absolute; margin-left: -2%;">
+								{% if form.message.errors %}
+									{{form.message.errors}}
+								{% endif %}
+							</div>
+					</div>
+					<div id = 'tab'>
+						<button type="submit" id='send_form'> Отправить </button>
+					</div>
+				{% endif %}
+			</form>
+		</div>
+</body>
+<!-- <footer>
+	<hr> <p><center> Cotyright &copy; Company 2018 - 2019 </center></p>
+</footer> -->
+{% endblock content %}
+</html>

@@ -1,0 +1,140 @@
+body{
+	display: block;
+	justify-content: center; /*для выравнивания текста*/
+	align-items: center; /*для выравнивания блоков*/
+	color:#D2691E;
+	font-size:20px;
+	font-family: Palatino Linotype;
+	font-weight: bold;
+	}
+ul{
+	list-style-type: none;
+	margin-top: 10%;
+	margin-left: 10%;
+	padding: 3px;
+	width: 300px;
+	height: 80px;
+	float:left;
+	position:relative;
+	}
+li {
+	margin: 5px;
+}
+li:hover{
+	text-decoration: underline;
+	}
+
+.block{
+	width:210px;
+}
+.block li{
+	display:block;
+	float:left;
+	margin: 10px;
+}
+
+#carta {
+	position: absolute;
+	margin-top: 25%;
+	width: 80%;
+	margin-left: 12%;
+}
+#forum{
+	position: absolute;
+	margin-top: 60%;
+	margin-left: 2%;
+	width: 90%;
+	box-shadow:0px 0px 10px 0px #808080;
+	padding: 2%;
+}
+h2 {
+	font-family: Palatino Linotype;
+	font-size: 26px;
+	font-weight: bold;
+	color: #808080;
+	-webkit-text-stroke: 0.3px black;
+	margin-left: 3%;
+}
+
+.form_control{
+width:300px;
+height: 35px;
+padding-left: 5px;
+border-radius:3px;
+margin-top: 1%;
+border: 1px solid #D3D3D3;
+}
+
+.my_errors{
+font-size: 14px;
+color: red;
+margin-top: -20px;
+margin-left: -10%;
+}
+
+
+.form_contr_1 {
+position: relative;
+width:625px;
+padding: 5px;
+border-radius:3px;
+border: 1px solid #D3D3D3;
+}
+
+#send_form{
+position: relative;
+box-shadow:0px 0px 10px 0px #808080;
+margin-top: 2%;
+width:200px;
+height: 40px;
+font-size: 18px;
+font-family: Palatino Linotype;
+}
+
+footer{
+	margin-bottom: 5%;
+}
+
+a .fn:hover{
+	content: url('images/fb.png');
+	width:35px;
+	height:35px;
+	}
+a .inst:hover{
+	content: url('images/insta.png');
+	width:35px;
+	height:35px;
+	}
+a .ytub:hover{
+	content: url('images/youtube.png');
+	width:35px;
+	height:35px;
+	}
+a .vatzap:hover{
+	content: url('images/icons8-whatsapp-48.png');
+	width:35px;
+	height:35px;
+	}
+a .telegramm:hover{
+	content: url('images/icons8-телеграмма-app-48.png');
+	width:35px;
+	height:35px;
+	}
+
+button #send_form:hover{
+    background-color: rgba(211, 211, 211, 0.8);}
+
+.my_col{
+display:inline-block;
+margin-top: 3%;}
+
+.my_col_1{
+display:block;
+position: relative;
+margin-top: 3%;
+}
+#tab {
+display:block;
+position: relative;
+margin-top: 3%;
+}
