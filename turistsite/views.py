@@ -38,6 +38,14 @@ def third(request):
     context={'tur_PERM':tur_PERM, 'tur_URAL':tur_URAL, 'tur_ACT':tur_ACT, 'tur_CHILD':tur_CHILD}
     return render(request, 'third.html', context=context)
 
+def four(request):
+    tur_PERM = MyTour.objects.filter (type__exact = "PERM")
+    tur_URAL = MyTour.objects.filter(type__exact="URAL")
+    tur_ACT = MyTour.objects.filter(type__exact="ACT")
+    tur_CHILD = MyTour.objects.filter(type__exact="CHILD")
+    context={'tur_PERM':tur_PERM, 'tur_URAL':tur_URAL, 'tur_ACT':tur_ACT, 'tur_CHILD':tur_CHILD}
+    return render(request, 'four.html', context=context)
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -95,14 +103,13 @@ def send_message(name, email, message):
     msg.send()
 
 def booking(request):
-    #model = MyBooking.objects.all()
-    #fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "price_ank", "price_child", "checkin_date", "email", " price"]
-
     if request.method == 'POST':
         form = MyBooking(request.POST)
         if form.is_valid():
-            form.save()  # Сохраняем нового пользователя
-            return redirect('home')  # Перенаправляем на главную страницу
+            booking = form.save(commit=False)  # Не сохраняем сразу, чтобы добавить пользователя
+            booking.email = request.user  # Присваиваем авторизованного пользователя
+            booking.save()
+            return redirect('home')
     else:
         form = MyBooking()
 

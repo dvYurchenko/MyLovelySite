@@ -40,32 +40,17 @@ class MyTour(models.Model):
         self.price = price_ank
         self.save()
 
-class Price_for_ank(models.Model):
-    title = models.ForeignKey(MyTour, on_delete=models.CASCADE, verbose_name='Название')
-    price_ank = models.IntegerField(default=0, verbose_name='Цена взрослый')
-
-    def __str__(self):
-        return str(self.price_ank)
-
-
 class Booking1(models.Model):
     first_name = models.CharField(max_length=50, default=" ", verbose_name='Имя')
     last_name = models.CharField(max_length=50, default=" ", verbose_name='Фамилия')
     title_of_trip = models.ForeignKey(MyTour, on_delete=models.CASCADE, verbose_name='Название тура')
-    col_of_ank = models.IntegerField(default=0)
-    col_of_child = models.IntegerField(default=0)
+    col_of_ank = models.IntegerField(default=0, verbose_name='Количество взрослых')
+    col_of_child = models.IntegerField(default=0, verbose_name='Количество детей')
+    checkin_date = models.DateField(default=datetime.now, verbose_name='Дата поездки')
+    email = models.EmailField(default='', verbose_name='Email')
 
-    price_child = models.IntegerField(default=0)
-    checkin_date = models.DateField(choices=[
-        ('date_1', 'date_1'),
-        ('date_2', 'date_2'),
-        ('date_3', 'date_3'),
-    ], default=datetime.now)
-    email = models.ForeignKey(User, on_delete=models.CASCADE, default='')
-    price = models.IntegerField(default=0)
-
-    def charge(self):
-        return int(self.col_of_ank) * self.get_adult_price() + int(self.col_of_child) * self.price_child
+    def __str__(self):
+        return self.first_name + ' '+ self.last_name
 
 
     #def charge(self) -> float:

@@ -2,12 +2,13 @@ from datetime import timezone, datetime
 
 from ckeditor import widgets
 from django import forms
+from django.contrib.admin.widgets import AdminDateWidget
 #from models import Booking1
 from rest_framework import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from turistsite.models import Booking1, MyTour
-from django.forms import ModelForm, DateInput, DateTimeField
+from django.forms import ModelForm, DateInput, DateTimeField, DateField
 
 
 class SignUpForm(UserCreationForm):
@@ -35,12 +36,11 @@ class ContactForm(forms.Form):
     message=forms.CharField(min_length=5, widget=forms.Textarea(attrs={'placeholder': 'Сообщение','col':30, 'rows': 9, 'class':'form_contr_1'}))
 
 class MyBooking(forms.ModelForm):
-    title_of_trip = forms.ModelChoiceField(queryset=MyTour.objects.all(), label='Название тура')
-    email = forms.EmailField(label='Email')
+    checkin_date = forms.DateField(widget=DateInput(attrs={'type': 'date'}), label='Дата поездки')
 
     class Meta:
          model = Booking1
-         fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "price_child", "checkin_date", "email"]
+         fields =["first_name", "last_name", "title_of_trip", "col_of_ank", "col_of_child", "checkin_date", "email"]
 
 #class SignUpForm(UserCreationForm):
     #name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Вашя имя'}))
