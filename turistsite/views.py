@@ -108,7 +108,7 @@ def booking(request):
         form = MyBooking(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)  # Не сохраняем сразу, чтобы добавить пользователя
-            booking.email = request.user  # Присваиваем авторизованного пользователя
+            booking.email = request.user # Присваиваем авторизованного пользователя
             booking.save()
             context={'success':1}
     else:
