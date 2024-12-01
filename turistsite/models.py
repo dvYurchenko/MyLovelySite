@@ -36,9 +36,9 @@ class MyTour(models.Model):
     def __str__(self):
         return self.title
 
-    def set_price(self, price_ank):
-        self.price = price_ank
-        self.save()
+    class Meta:
+        verbose_name = 'Туры'
+        verbose_name_plural = 'Туры'
 
 class Booking1(models.Model):
     first_name = models.CharField(max_length=50, default=" ", verbose_name='Имя')
@@ -51,6 +51,10 @@ class Booking1(models.Model):
 
     def __str__(self):
         return self.first_name + ' '+ self.last_name
+
+    class Meta:
+        verbose_name = 'Бронирование'
+        verbose_name_plural = 'Бронирование'
 
 
     #def charge(self) -> float:

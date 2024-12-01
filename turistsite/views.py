@@ -103,14 +103,16 @@ def send_message(name, email, message):
     msg.send()
 
 def booking(request):
+    context = {}
     if request.method == 'POST':
         form = MyBooking(request.POST)
         if form.is_valid():
             booking = form.save(commit=False)  # Не сохраняем сразу, чтобы добавить пользователя
             booking.email = request.user  # Присваиваем авторизованного пользователя
             booking.save()
-            return redirect('home')
+            context={'success':1}
     else:
         form = MyBooking()
+        context['form'] = form
 
-    return render(request, 'booking.html', {'form': form}) #, 'model':model,'fields':fields})
+    return render(request, 'booking.html', context=context) #, 'model':model,'fields':fields})

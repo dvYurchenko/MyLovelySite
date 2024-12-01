@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 {% load static %}
 <link rel='stylesheet' href = "{% static 'css/style_3.css' %}">
+<header>
+	<div class = 'to_main'>
+			<div style='height: 52px; width: 52px; background:white; border-radius: 5px; float: right; margin-right: 2%;'>
+  			<a href="{% url 'home' %}"><img src = "{% static 'images/image2/icons8-home-location-68.png' %}"></a></div>
+	</div>
+</header>
 <body>
 {% block content %}
 <div class="castomForm">
 <form method="POST" novalidate id = 'my_form'>
 	{% csrf_token %}
+		{% if success %}
+			<strong> Спасибо, ваша бронь обрабатыевается!  </strong>
+		{% else %}
 	<h2 style="text-align: center;">Забронировать</h2>
 
 		{{ form.as_p }}
 	<input type="submit" id="send_form" value="Отправить" />
+	{% endif %}
 </form>
 </div>
 {% endblock content %}
